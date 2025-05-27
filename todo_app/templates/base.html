@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}To-Do App{% endblock %}</title>
+  <link href="/static/css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <button class="toggle button" id="theme-toggle">Toggle</button>
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+        <div class="card {{ 'bg-red-200' if category == 'error' else 'bg-green-200' }}">
+          {{ msg }}
+        </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </div>
+  <script>
+    const btn = document.getElementById('theme-toggle');
+    btn.addEventListener('click', ()=>{ document.documentElement.classList.toggle('dark'); });
+  </script>
+  <script src="/static/js/auth.js"></script>
+  <script src="/static/js/todos.js"></script>
+</body>
+</html>

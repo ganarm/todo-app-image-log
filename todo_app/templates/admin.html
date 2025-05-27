@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Admin Panel{% endblock %}
+{% block content %}
+<div class="card">
+  <h2 class="text-xl mb-4">User Statistics</h2>
+  <table class="w-full text-left">
+    <thead><tr><th>User</th><th>Task Count</th></tr></thead>
+    <tbody>
+      {% for user, count in stats %}
+      <tr><td>{{ user }}</td><td>{{ count }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

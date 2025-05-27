@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="card">
+  <h2 class="text-xl mb-4">Login</h2>
+  <form method="POST">
+    <input name="username" placeholder="Username" required class="block w-full mb-2 p-2 rounded">
+    <input type="hidden" id="pattern-input" name="pattern">
+    <div class="grid grid-cols-4 gap-2 mb-4">
+      {% for i in range(1,13) %}
+      <img src="/static/images/img{{i}}.png" data-id="{{i}}" class="graph-img cursor-pointer rounded">
+      {% endfor %}
+    </div>
+    <button type="submit" class="button bg-green-500 text-white">Login</button>
+  </form>
+</div>
+{% endblock %}

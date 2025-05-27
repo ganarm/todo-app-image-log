@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}To-Dos{% endblock %}
+{% block content %}
+<div class="card">
+  <h2 class="text-xl mb-4">Your Tasks</h2>
+  <form id="task-form" class="mb-4">
+    <input name="title" placeholder="Title" required class="block w-full mb-2 p-2 rounded">
+    <textarea name="description" placeholder="Description" class="block w-full mb-2 p-2 rounded"></textarea>
+    <select name="priority" class="block w-full mb-2 p-2 rounded">
+      <option>Low</option>
+      <option selected>Medium</option>
+      <option>High</option>
+    </select>
+    <input name="due_date" type="date" class="block w-full mb-2 p-2 rounded">
+    <button type="submit" class="button bg-blue-500 text-white">Add Task</button>
+  </form>
+  <div id="tasks-list"></div>
+</div>
+{% endblock %}
